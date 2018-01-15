@@ -854,7 +854,7 @@ function checkHighScores() {
     var score = modes[game.mode].endScore();
     var highScore = records.scores[modes[game.mode].id][game.level];
     if (modes[game.mode].isTime) {
-        if (highScore == 0 || score < highScore) {
+        if ((highScore == 0 && score > 0) || score < highScore) {
             game.highScore = true;
             records.scores[modes[game.mode].id][game.level] = score;
         }
@@ -958,6 +958,9 @@ function updateResults() {
     }
     if (scorePct > 100) {
         scorePct = 100;
+    }
+    if (rawScore == 0) {
+        scorePct = 0;
     }
     $("#resultsBarFill").css("width", scorePct + "%");
 }
