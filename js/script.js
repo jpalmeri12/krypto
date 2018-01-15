@@ -249,6 +249,7 @@ $(function () {
     loadRecords();
     showScreen("menuScreen");
     updateMenu();
+    resizeWindow();
 });
 
 function initButtons() {

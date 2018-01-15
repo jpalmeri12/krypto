@@ -621,6 +621,11 @@ input {
     animation: stripeMove 1s infinite linear normal forwards;
 }
 
+.stripedBox {
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+}
+
 @keyframes stripeMove {
     0% {
         background-position: 0rem 0rem;
