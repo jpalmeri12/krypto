@@ -247,6 +247,7 @@ $(function () {
     initBlankGame();
     initRecords();
     loadRecords();
+    initStripedBox();
     showScreen("menuScreen");
     updateMenu();
     resizeWindow();
@@ -500,6 +501,11 @@ function initRecords() {
         }
         $("#recordsDrapes").append(newDrape);
     }
+}
+
+function initStripedBox() {
+    $("#menuPlayBox").css("animation", "stripeMove 1s infinite linear normal forwards");
+    $(".stripedBox").css("animation", "stripeMove 1s infinite linear normal forwards");
 }
 
 function makeRecords() {

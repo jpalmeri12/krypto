@@ -110,7 +110,6 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
     border-radius: .5rem;
 }
 
@@ -618,12 +617,10 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4rem;
-    animation: stripeMove 1s infinite linear normal forwards;
 }
 
 .stripedBox {
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
 }
 
 @keyframes stripeMove {
@@ -848,7 +845,6 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
 }
 
 #resultsFooter {
@@ -858,7 +854,6 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
 }
 
 #resultsTitle {
@@ -882,7 +877,6 @@ input {
     border-radius: 1rem;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
     border-radius: 1rem;
 }
 
@@ -906,7 +900,6 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
     border-radius: 1rem;
 }
 
@@ -975,7 +968,6 @@ input {
     position: absolute;
     background-image: url(img/stripe.svg);
     background-size: 4.001rem;
-    animation: stripeMove 1s infinite linear normal forwards;
     border-radius: 1rem;
 }
 
