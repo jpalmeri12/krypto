@@ -1,0 +1,1236 @@
+@font-face {
+    font-family: "FuturaBook";
+    src: url("fonts/FuturaPTBook.otf");
+}
+
+@font-face {
+    font-family: "FuturaMedium";
+    src: url("fonts/FuturaPTMedium.otf");
+}
+
+@font-face {
+    font-family: "FuturaDemi";
+    src: url("fonts/FuturaPTDemi.otf");
+}
+
+@font-face {
+    font-family: "FuturaBold";
+    src: url("fonts/FuturaPTBold.otf");
+}
+
+@font-face {
+    font-family: "FuturaHeavy";
+    src: url("fonts/FuturaPTHeavy.otf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input {
+    padding: 0;
+}
+
+#stage {
+    position: absolute;
+    background-color: white;
+    overflow: hidden;
+}
+
+.screenBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.anim_fadeIn {
+    animation: fadeIn .25s linear normal forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.anim_fadeOut {
+    animation: fadeOut .25s linear normal forwards;
+}
+
+#menuTitle {
+    width: 100%;
+    top: 0.5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    font-size: 2.5rem;
+    color: #404040;
+    text-transform: uppercase;
+}
+
+#menuSubtitle {
+    width: 100%;
+    top: 13.5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    font-size: 1rem;
+    color: #808080;
+    text-transform: uppercase;
+}
+
+#menuPlayBox {
+    width: 13rem;
+    height: 13rem;
+    left: 1rem;
+    top: 4.5rem;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+    border-radius: .5rem;
+}
+
+.menuWhiteBox {
+    width: 11rem;
+    height: 1.5rem;
+    left: 1rem;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: .5rem;
+}
+
+#menuPlayMode {
+    top: 1rem;
+}
+
+#menuPlayLevel {
+    top: 5.5rem;
+}
+
+.menuPlayLeft {
+    width: 1.25rem;
+    height: 1.25rem;
+    left: .125rem;
+    top: .125rem;
+    position: absolute;
+    background-image: url(img/arrow_left.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.menuPlayRight {
+    width: 1.25rem;
+    height: 1.25rem;
+    left: 9.625rem;
+    top: .125rem;
+    position: absolute;
+    background-image: url(img/arrow_right.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.anim_arrowButtonOff {
+    animation: arrowButtonOff 0.125s cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes arrowButtonOff {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: .25;
+        transform: scale(.75);
+    }
+}
+
+.anim_arrowButtonOn {
+    animation: arrowButtonOn 0.125s cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes arrowButtonOn {
+    0% {
+        opacity: .25;
+        transform: scale(.75);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.menuBlackBox {
+    width: 10rem;
+    height: 2rem;
+    left: 1.5rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+#menuPlayModeDesc {
+    top: 2.5rem;
+}
+
+#menuPlayLevelDesc {
+    top: 7rem;
+}
+
+#menuPlayModeDescText {
+    width: 90%;
+    top: 5%;
+    left: 5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#menuPlayLevelDescText {
+    width: 90%;
+    top: 5%;
+    left: 5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#menuBestLabel {
+    width: 5rem;
+    top: 14rem;
+    left: 2rem;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#menuStartLabel {
+    width: 5rem;
+    top: 14rem;
+    left: 8rem;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .7rem;
+    color: rgba(0, 0, 0, .75);
+    text-transform: uppercase;
+}
+
+#menuBestBox {
+    width: 5rem;
+    height: 1.5rem;
+    left: 2rem;
+    top: 15rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    border-radius: .5rem;
+}
+
+#menuBestText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#menuStartButton {
+    width: 5rem;
+    height: 1.5rem;
+    left: 8rem;
+    top: 15rem;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: .5rem;
+}
+
+.menuButton {
+    width: 6rem;
+    height: 1.5rem;
+    top: 18.5rem;
+    position: absolute;
+    background-color: #d0d0d0;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+#menuHelpButton {
+    left: 1rem;
+}
+
+#menuRecordsButton {
+    left: 8rem;
+}
+
+.menuButtonText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .75);
+    text-transform: uppercase;
+}
+
+#loadingText {
+    width: 100%;
+    top: 47.5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: rgba(0, 0, 0, .5);
+    text-transform: uppercase;
+}
+
+#loadingSubtext {
+    width: 100%;
+    top: 55%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+}
+
+#hudLabel0 {
+    width: 95%;
+    left: 2.5%;
+    top: 2.25%;
+    position: absolute;
+    text-align: left;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    color: #d0d0d0;
+    text-transform: uppercase;
+}
+
+#hudNum0 {
+    width: 95%;
+    left: 2.5%;
+    top: 5.5%;
+    position: absolute;
+    text-align: left;
+    font-family: "FuturaDemi";
+    font-size: 1.25rem;
+    color: #808080;
+}
+
+#hudLabel1 {
+    width: 95%;
+    left: 2.5%;
+    top: 2.25%;
+    position: absolute;
+    text-align: right;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    color: #d0d0d0;
+    text-transform: uppercase;
+}
+
+#hudNum1 {
+    width: 95%;
+    left: 2.5%;
+    top: 5.5%;
+    position: absolute;
+    text-align: right;
+    font-family: "FuturaDemi";
+    font-size: 1.25rem;
+    color: #808080;
+}
+
+#hudSub0 {
+    width: 95%;
+    left: 2.5%;
+    top: 12%;
+    position: absolute;
+    text-align: left;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    color: #404040;
+}
+
+#hudSub1 {
+    width: 95%;
+    left: 2.5%;
+    top: 12%;
+    position: absolute;
+    text-align: right;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    color: #404040;
+}
+
+#difficultyText {
+    width: 100%;
+    top: 2%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: 1rem;
+    color: #808080;
+    opacity: 0;
+}
+
+#difficultySubtext {
+    width: 100%;
+    top: 8%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    color: #d0d0d0;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+.numButton {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    background-color: #258e58;
+    border-radius: .5rem;
+}
+
+.numButtonNumber {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+.anim_numButtonSelected {
+    animation: numButtonSelected .5s infinite linear alternate forwards;
+}
+
+@keyframes numButtonSelected {
+    0% {
+        width: 3.5rem;
+        height: 3.5rem;
+        border: .25rem solid #31d680;
+    }
+    100% {
+        width: 3.5rem;
+        height: 3.5rem;
+        border: .25rem solid #afffd6;
+    }
+}
+
+.opButton {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    background-color: #286c91;
+    border-radius: .5rem;
+}
+
+.opButtonText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaMedium";
+    transform: translateY(-50%);
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+.anim_opButtonSelected {
+    animation: opButtonSelected .5s infinite linear alternate forwards;
+}
+
+@keyframes opButtonSelected {
+    0% {
+        width: 3.5rem;
+        height: 3.5rem;
+        border: .25rem solid #3ba5dd;
+    }
+    100% {
+        width: 3.5rem;
+        height: 3.5rem;
+        border: .25rem solid #a3dfff;
+    }
+}
+
+#resetButton {
+    width: 4rem;
+    height: 2.5rem;
+    left: 1rem;
+    top: 17rem;
+    position: absolute;
+    background-color: #d63939;
+    border-radius: .5rem;
+}
+
+.anim_resetFlash {
+    animation: resetFlash .5s infinite linear alternate forwards;
+}
+
+@keyframes resetFlash {
+    0% {
+        background-color: #d63939;
+    }
+    100% {
+        background-color: #ffc4c4;
+    }
+}
+
+#resetButtonText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#goalBox {
+    width: 4rem;
+    height: 2.5rem;
+    left: 5.5rem;
+    top: 17rem;
+    position: absolute;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+#goalBoxHeader {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    background-color: #404040;
+}
+
+#goalBoxBody {
+    width: 100%;
+    height: 60%;
+    top: 40%;
+    position: absolute;
+    background-color: #d0d0d0;
+}
+
+#goalBoxHeaderText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .8rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#goalBoxBodyText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, .75);
+}
+
+#concedeButton {
+    width: 4rem;
+    height: 2.5rem;
+    left: 10rem;
+    top: 17rem;
+    position: absolute;
+    background-color: #d63939;
+    border-radius: .5rem;
+}
+
+#concedeButtonText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .75rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#banner {
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border-radius: .5rem;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#bannerBG {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+}
+
+@keyframes stripeMove {
+    0% {
+        background-position: 0rem 0rem;
+    }
+    100% {
+        background-position: 4rem 0rem;
+    }
+}
+
+.anim_bannerIn {
+    animation: bannerIn .25s cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes bannerIn {
+    0% {
+        width: 0rem;
+        height: 2.5rem;
+        left: 7.5rem;
+        top: 17rem;
+        opacity: 1;
+    }
+    100% {
+        width: 13rem;
+        height: 2.5rem;
+        left: 1rem;
+        top: 17rem;
+        opacity: 1;
+    }
+}
+
+.anim_bannerBig {
+    animation: bannerBig .25s cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes bannerBig {
+    0% {
+        width: 13rem;
+        height: 2.5rem;
+        left: 1rem;
+        top: 17rem;
+        opacity: 1;
+    }
+    100% {
+        width: 13rem;
+        height: 16rem;
+        left: 1rem;
+        top: 3.5rem;
+        opacity: 1;
+    }
+}
+
+.anim_bannerOut {
+    animation: bannerOut .25s cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes bannerOut {
+    0% {
+        width: 13rem;
+        height: 16rem;
+        left: 1rem;
+        top: 3.5rem;
+        opacity: 1;
+    }
+    50% {
+        width: 10rem;
+        height: 2.5rem;
+        left: 2.5rem;
+        top: 8.75rem;
+        opacity: 1;
+    }
+    100% {
+        width: 0rem;
+        height: 0rem;
+        left: 7.5rem;
+        top: 10rem;
+        opacity: 1;
+    }
+}
+
+#bannerText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#solutionTitle {
+    width: 100%;
+    top: 2.5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    font-size: 1.5rem;
+    color: #808080;
+    text-transform: uppercase;
+}
+
+.solNum {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    background-color: #258e58;
+    border-radius: .5rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.solNumText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+.solOp {
+    width: 5.25rem;
+    height: 2.25rem;
+    position: absolute;
+    background-color: #286c91;
+    border-radius: .625rem;
+    opacity: 0;
+}
+
+.solOpText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaMedium";
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#solGoal {
+    width: 2rem;
+    height: 2rem;
+    left: 6.5rem;
+    top: 15rem;
+    position: absolute;
+    background-color: #d0d0d0;
+    border-radius: .5rem;
+    z-index: 0;
+}
+
+#solGoalText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, .25);
+}
+
+.anim_solNumIn {
+    animation: solNumIn .25s .25s 1 cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes solNumIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+.anim_solOpIn {
+    animation: solOpIn .25s 1 cubic-bezier(.5, 0, .5, 1) normal forwards;
+}
+
+@keyframes solOpIn {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#solClickText {
+    width: 100%;
+    top: 18rem;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .5);
+    text-transform: uppercase;
+    animation: solClickTextFlash 1s infinite linear alternate forwards;
+}
+
+@keyframes solClickTextFlash {
+    0% {
+        color: rgba(0, 0, 0, .5);
+    }
+    100% {
+        color: rgba(0, 0, 0, .25);
+    }
+}
+
+#resultsHeader {
+    width: 15rem;
+    height: 3rem;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+}
+
+#resultsFooter {
+    width: 15rem;
+    height: 3rem;
+    top: 17rem;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+}
+
+#resultsTitle {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#resultsModeBox {
+    width: 13rem;
+    height: 1.5rem;
+    left: 1rem;
+    top: 4rem;
+    position: absolute;
+    border-radius: 1rem;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+    border-radius: 1rem;
+}
+
+#resultsModeText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#resultsScore {
+    width: 13rem;
+    height: 6rem;
+    left: 1rem;
+    top: 6.5rem;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+    border-radius: 1rem;
+}
+
+#resultsScoreText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#resultsScoreLabel {
+    width: 100%;
+    top: 16.5%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+}
+
+#resultsScoreRecord {
+    width: 100%;
+    top: 85%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+}
+
+#resultsClick {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+    animation: resultsClickTextFlash 1s infinite linear alternate forwards;
+}
+
+@keyframes resultsClickTextFlash {
+    0% {
+        color: rgba(255, 255, 255, .5);
+    }
+    100% {
+        color: rgba(255, 255, 255, .25);
+    }
+}
+
+#resultsRank {
+    width: 13rem;
+    height: 2.5rem;
+    left: 1rem;
+    top: 13.5rem;
+    position: absolute;
+    background-image: url(img/stripe.svg);
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+    border-radius: 1rem;
+}
+
+#resultsRankLabel {
+    width: 3rem;
+    top: 25%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#resultsRankText {
+    width: 3rem;
+    top: 65%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.35rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#resultsBar {
+    width: 9.5rem;
+    height: .75rem;
+    left: 3rem;
+    top: 1.5rem;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .25);
+    border: .1rem solid rgba(255, 255, 255, 1);
+    margin: -.1rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#resultsBarFill {
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+#resultsBarLines {
+    width: 9.5rem;
+    height: 1.25rem;
+    left: 3rem;
+    top: 0.25rem;
+    position: absolute;
+}
+
+.resultsBarLine {
+    width: .095rem;
+    height: 1.25rem;
+    left: 70%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.resultsBarRank {
+    width: 2rem;
+    left: -2.1rem;
+    top: -.1rem;
+    position: absolute;
+    text-align: right;
+    font-family: "FuturaDemi";
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+.resultsBarScore {
+    width: 2rem;
+    left: -2.1rem;
+    top: .55rem;
+    position: absolute;
+    text-align: right;
+    font-family: "FuturaDemi";
+    font-size: .5rem;
+    color: rgba(255, 255, 255, .75);
+}
+
+#recordsTitleBox {
+    width: 6.75rem;
+    height: 2rem;
+    left: 4.125rem;
+    top: .75rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    border-radius: .5rem;
+}
+
+#recordsTitleText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#recordsBackButton {
+    width: 3rem;
+    height: 2rem;
+    left: .375rem;
+    top: .75rem;
+    position: absolute;
+    background-color: #d63939;
+    border-radius: .5rem;
+}
+
+#recordsBackButtonText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#recordsRating {
+    width: 3rem;
+    height: 2rem;
+    left: 11.625rem;
+    top: .75rem;
+    position: absolute;
+    background-color: #258e58;
+    border-radius: .5rem;
+}
+
+#recordsRatingText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+.recordsDrape {
+    width: 3rem;
+    height: 16.5rem;
+    top: 3.5rem;
+    position: absolute;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    background-size: 4.001rem;
+    animation: stripeMove 1s infinite linear normal forwards;
+    overflow: hidden;
+}
+
+.recordsDrapeHeader {
+    width: 3rem;
+    height: 1.5rem;
+    left: 0rem;
+    top: 0rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.recordsDrapeHeaderText {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .5rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+.recordsDot {
+    width: 2.5rem;
+    height: 2.5rem;
+    left: .25rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    border-radius: .5rem;
+}
+
+.recordsDotLevel {
+    width: 100%;
+    top: 15%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .5rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+.recordsDotRank {
+    width: 100%;
+    top: 49%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+.recordsDotScore {
+    width: 100%;
+    top: 85%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    transform: translateY(-50%);
+    font-size: .5rem;
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+}
+
+#rulesHeader {
+    width: 100%;
+    top: 3%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaHeavy";
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, .75);
+    text-transform: uppercase;
+}
+
+#rulesBody {
+    width: 14rem;
+    left: .5rem;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: .75rem;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, .5);
+}
+
+#rulesClick {
+    width: 100%;
+    top: 90%;
+    position: absolute;
+    text-align: center;
+    font-family: "FuturaDemi";
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .75);
+    text-transform: uppercase;
+    animation: solClickTextFlash 1s infinite linear alternate forwards;
+}

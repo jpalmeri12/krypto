@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Krypto</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/cipher.js"></script>
+    <script src="js/doubletap.js"></script>
+    <script src="js/resize.js"></script>
+    <script src="js/puzzles.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="stage" class="screen">
+        <div id="menuScreen" class="screenBox">
+            <div id="menuTitle">Krypto</div>
+            <div id="menuSubtitle">Challenge Edition</div>
+            <div id="menuPlayBox">
+                <div id="menuPlayMode" class="menuWhiteBox">
+                    <div id="menuPlayModeText" class="menuButtonText"></div>
+                    <div id="menuPlayModeLeft" class="menuPlayLeft"></div>
+                    <div id="menuPlayModeRight" class="menuPlayRight"></div>
+                </div>
+                <div id="menuPlayModeDesc" class="menuBlackBox">
+                    <div id="menuPlayModeDescText"></div>
+                </div>
+                <div id="menuPlayLevel" class="menuWhiteBox">
+                    <div id="menuPlayLevelText" class="menuButtonText"></div>
+                    <div id="menuPlayLevelLeft" class="menuPlayLeft"></div>
+                    <div id="menuPlayLevelRight" class="menuPlayRight"></div>
+                </div>
+                <div id="menuPlayLevelDesc" class="menuBlackBox">
+                    <div id="menuPlayLevelDescText"></div>
+                </div>
+            </div>
+            <div id="menuBestLabel"></div>
+            <div id="menuBestBox">
+                <div id="menuBestText"></div>
+            </div>
+            <div id="menuStartLabel">Ready?</div>
+            <div id="menuStartButton">
+                <div class="menuButtonText">Start</div>
+            </div>
+            <div id="menuHelpButton" class="menuButton">
+                <div class="menuButtonText">Rules</div>
+            </div>
+            <div id="menuRecordsButton" class="menuButton">
+                <div class="menuButtonText">Records</div>
+            </div>
+        </div>
+        <div id="loadScreen" class="screenBox">
+            <div id="loadingText">Loading</div>
+            <div id="loadingSubtext">Preparing Puzzles</div>
+        </div>
+        <div id="gameScreen" class="screenBox">
+            <div id="hudLabel0"></div>
+            <div id="hudNum0"></div>
+            <div id="difficultyText"></div>
+            <div id="difficultySubtext"></div>
+            <div id="hudLabel1"></div>
+            <div id="hudNum1"></div>
+            <div id="hudSub0"></div>
+            <div id="hudSub1"></div>
+            <div id="numButtons"></div>
+            <div id="resetButton">
+                <div id="resetButtonText">RESET</div>
+            </div>
+            <div id="goalBox">
+                <div id="goalBoxHeader">
+                    <div id="goalBoxHeaderText">GOAL</div>
+                </div>
+                <div id="goalBoxBody">
+                    <div id="goalBoxBodyText"></div>
+                </div>
+            </div>
+            <div id="concedeButton">
+                <div id="concedeButtonText">Give Up</div>
+            </div>
+            <div id="banner">
+                <div id="bannerBG" class="stripedBox"></div>
+                <div id="bannerText"></div>
+            </div>
+        </div>
+        <div id="solutionScreen" class="screenBox">
+            <div id="solutionTitle">Solution</div>
+            <div id="solNums"></div>
+            <div id="solOps"></div>
+            <div id="solGoal">
+                <div id="solGoalText"></div>
+            </div>
+            <div id="solClickText">Click to Continue</div>
+        </div>
+        <div id="resultsScreen" class="screenBox">
+            <div id="resultsHeader" class="stripedBox">
+                <div id="resultsTitle">Results</div>
+            </div>
+            <div id="resultsFooter" class="stripedBox">
+                <div id="resultsClick">Click to Continue</div>
+            </div>
+            <div id="resultsModeBox" class="stripedBox">
+                <div id="resultsModeText"></div>
+            </div>
+            <div id="resultsScore" class="stripedBox">
+                <div id="resultsScoreLabel"></div>
+                <div id="resultsScoreText"></div>
+                <div id="resultsScoreRecord"></div>
+            </div>
+            <div id="resultsRank" class="stripedBox">
+                <div id="resultsBar">
+                    <div id="resultsBarFill"></div>
+                </div>
+                <div id="resultsBarLines">
+                    <div id="resultsBarLine0" class="resultsBarLine">
+                        <div class="resultsBarRank"></div>
+                        <div class="resultsBarScore"></div>
+                    </div>
+                </div>
+                <div id="resultsRankLabel">Rank</div>
+                <div id="resultsRankText"></div>
+            </div>
+        </div>
+        <div id="rulesScreen" class="screenBox">
+            <div id="rulesHeader">How to Play</div>
+            <div id="rulesBody">
+            Start with five numbers.
+            <br>
+            <br>
+            Combine them using addition, subtraction, multiplication, and division to make the Goal Number.
+            <br>
+            <br>
+            You must use all five numbers. There are usually many different solutions!
+            <br>
+            <br>
+            If you get stuck, click Reset to start the puzzle over. If you feel like you can't solve the puzzle, click Give Up to end the game and view the solution.
+            </div>
+            <div id="rulesClick">Click to Continue</div>
+        </div>
+        <div id="recordsScreen" class="screenBox">
+            <div id="recordsTitleBox">
+                <div id="recordsTitleText">Records</div>
+            </div>
+            <div id="recordsBackButton">
+                <div id="recordsBackButtonText">×</div>
+            </div>
+            <div id="recordsRating">
+                <div id="recordsRatingText"></div>
+            </div>
+            <div id="recordsDrapes"></div>
+        </div>
+    </div>
+</body>
+
+</html>
