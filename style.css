@@ -80,6 +80,14 @@ input {
     animation: fadeOut .25s linear normal forwards;
 }
 
+.btnLight:hover {
+    filter: brightness(130%);
+}
+
+.btnDark:hover {
+    filter: brightness(70%);
+}
+
 #menuTitle {
     width: 100%;
     top: 0.5%;
