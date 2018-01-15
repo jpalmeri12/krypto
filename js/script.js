@@ -263,7 +263,7 @@ function refreshDOM() {
 function initButtons() {
     $("#numButtons").empty();
     for (var i = 0; i < 5; i++) {
-        var newButton = $('<div id="numButton' + i + '" class="numButton btnLight"></div>');
+        var newButton = $('<div id="numButton' + i + '" class="numButton"></div>');
         newButton.append('<div class="numButtonNumber"></div>');
         var gridPos = 2 * i;
         var x = gridPos % 3;
@@ -277,7 +277,7 @@ function initButtons() {
     }
     for (var i = 0; i < 4; i++) {
         var ops = ["+", "−", "×", "÷"]
-        var newButton = $('<div id="opButton' + i + '" class="opButton btnLight"></div>');
+        var newButton = $('<div id="opButton' + i + '" class="opButton"></div>');
         newButton.append('<div class="opButtonText">' + ops[i] + '</div>');
         var gridPos = 2 * i + 1;
         var x = gridPos % 3;
