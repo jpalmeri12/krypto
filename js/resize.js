@@ -1,5 +1,5 @@
 $(function () {
-    resizeWindow();
+    //resizeWindow();
 });
 
 // Fix aspect ratio of the stage

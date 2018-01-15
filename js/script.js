@@ -240,6 +240,7 @@ var niceSymbols = {
 };
 
 $(function () {
+    resizeWindow();
     initButtons();
     initSolution();
     initResults();
@@ -250,7 +251,6 @@ $(function () {
     initStripedBox();
     showScreen("menuScreen");
     updateMenu();
-    resizeWindow();
 });
 
 function initButtons() {
@@ -1048,7 +1048,6 @@ function updateRecords() {
     for (var i = 0; i < modes.length; i++) {
         for (var j = 0; j < levels.length; j++) {
             var dot = "#recordsDrape" + i + ">.recordsDot" + j;
-            console.log(records);
             var score = records.scores[modes[i].id][j];
             var rank = getRank(score, i);
             var numRank = getRank(score, i, true);
