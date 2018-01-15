@@ -445,7 +445,9 @@ input {
 }
 
 .anim_numButtonSelected {
-    animation: numButtonSelected .5s infinite linear alternate forwards;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: .25rem solid #31d680;
 }
 
 @keyframes numButtonSelected {
@@ -481,7 +483,9 @@ input {
 }
 
 .anim_opButtonSelected {
-    animation: opButtonSelected .5s infinite linear alternate forwards;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: .25rem solid #3ba5dd;
 }
 
 @keyframes opButtonSelected {
