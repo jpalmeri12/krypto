@@ -110,8 +110,8 @@ function checkReload() {
     if (window.performance) {
         console.info("window.performance work's fine on this browser");
     }
-    if (performance.navigation.type == 1) {
-        location.reload(true);
+    if (window.performance.navigation.type == 1) {
+        window.location.reload(true);
     } else {
         console.info("This page is not reloaded");
     }
