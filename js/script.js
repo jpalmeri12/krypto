@@ -241,6 +241,7 @@ var niceSymbols = {
 
 $(function () {
     resizeWindow();
+    refreshDOM();
     initButtons();
     initSolution();
     initResults();
@@ -252,6 +253,12 @@ $(function () {
     showScreen("menuScreen");
     updateMenu();
 });
+
+function refreshDOM() {
+    var html = $("body").html();
+    $("body").empty();
+    $("body").append(html);
+}
 
 function initButtons() {
     $("#numButtons").empty();
