@@ -74,8 +74,7 @@ function formatTime(sec, useMs) {
         while (seconds.length < 5) {
             seconds += "0";
         }
-    }
-    else {
+    } else {
         seconds = Math.ceil(seconds);
         seconds = "" + seconds;
         if (seconds < 10) {
@@ -91,8 +90,7 @@ function loadRecords() {
     var oldRecords = localStorage.getItem(recordsKey);
     if (oldRecords == null) {
         makeRecords();
-    }
-    else {
+    } else {
         records = JSON.parse(oldRecords);
     }
 }
@@ -105,4 +103,16 @@ function saveRecords() {
 function clearRecords() {
     makeRecords();
     saveRecords();
+}
+
+function checkReload() {
+    //check for navigation time API support
+    if (window.performance) {
+        console.info("window.performance work's fine on this browser");
+    }
+    if (performance.navigation.type == 1) {
+        location.reload(true);
+    } else {
+        console.info("This page is not reloaded");
+    }
 }
