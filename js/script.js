@@ -87,15 +87,6 @@ var modes = [
         "isTime": false,
         "hud": [
             {
-                "label": "Solved",
-                "value": function () {
-                    return game.puzzleNum;
-                },
-                "sub": function () {
-                    return "";
-                }
-            },
-            {
                 "label": "Time Left",
                 "value": function () {
                     return formatTime(game.time, true);
@@ -104,6 +95,15 @@ var modes = [
                     if (game.bonusTime > 0) {
                         return "+" + game.bonusTime + " sec.";
                     }
+                    return "";
+                }
+            },
+            {
+                "label": "Solved",
+                "value": function () {
+                    return game.puzzleNum;
+                },
+                "sub": function () {
                     return "";
                 }
             }
@@ -129,18 +129,18 @@ var modes = [
         "isTime": true,
         "hud": [
             {
-                "label": "Solved",
+                "label": "Time",
                 "value": function () {
-                    return game.puzzleNum + "/3";
+                    return formatTime(game.timeElapsed, true);
                 },
                 "sub": function () {
                     return "";
                 }
             },
             {
-                "label": "Time",
+                "label": "Solved",
                 "value": function () {
-                    return formatTime(game.timeElapsed, true);
+                    return game.puzzleNum + "/3";
                 },
                 "sub": function () {
                     return "";
@@ -156,12 +156,21 @@ var modes = [
         "desc": "The time limit's decreasing. Go for a high score!",
         "endLabel": "Final Score",
         "endScore": function () {
-            return game.score;
+            return game.score + game.bonusPoints;
         },
         "bestLabel": "Best Score",
         "ranks": [1000, 3000, 5000, 7000, 10000],
         "isTime": false,
         "hud": [
+            {
+                "label": "Time Left",
+                "value": function () {
+                    return formatTime(game.time, true);
+                },
+                "sub": function () {
+                    return "";
+                }
+            },
             {
                 "label": "Score",
                 "value": function () {
@@ -171,15 +180,6 @@ var modes = [
                     if (game.bonusPoints > 0) {
                         return "+" + game.bonusPoints + " pts.";
                     }
-                    return "";
-                }
-            },
-            {
-                "label": "Time Left",
-                "value": function () {
-                    return formatTime(game.time, true);
-                },
-                "sub": function () {
                     return "";
                 }
             }
@@ -813,6 +813,8 @@ function winPuzzle() {
                 return 90 - 5 * round;
             } else if (round <= 19) {
                 return 65 - 5 * Math.floor(round / 2);
+            } else {
+                return 20;
             }
         }
     }
