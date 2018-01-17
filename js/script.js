@@ -856,7 +856,7 @@ function checkHighScores() {
     var score = modes[game.mode].endScore();
     var highScore = records.scores[modes[game.mode].id][game.level];
     if (modes[game.mode].isTime) {
-        if ((highScore == 0 && score > 0) || score < highScore) {
+        if (score > 0 && (highScore == 0 || score < highScore)) {
             game.highScore = true;
             records.scores[modes[game.mode].id][game.level] = score;
         }
